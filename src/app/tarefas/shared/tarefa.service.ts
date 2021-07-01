@@ -79,7 +79,7 @@ export class TarefaService {
     //filtro as q nao tem esse id
     tarefas = tarefas.filter(tarefa => tarefa.id !== id);
     //atualiza o localStorage
-    localStorage['tarefa'] = JSON.stringify(tarefas);
+    localStorage['tarefas'] = JSON.stringify(tarefas);
   }
 
   /**
@@ -99,6 +99,10 @@ export class TarefaService {
       }
     });
     //atualiza o localStorage
-    localStorage['tarefa'] = JSON.stringify(tarefas);
+    localStorage['tarefas'] = JSON.stringify(tarefas);
+  }
+
+  apagarTudo(): void {
+    localStorage.clear();
   }
 }
