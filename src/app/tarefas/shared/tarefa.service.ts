@@ -81,4 +81,24 @@ export class TarefaService {
     //atualiza o localStorage
     localStorage['tarefa'] = JSON.stringify(tarefas);
   }
+
+  /**
+   * alterando o status de concluida da tarefa
+   * 
+   * @param id id da tarefa
+   */
+  alterarStatus(id: number): void {
+    //busca todas as tarefas
+    const tarefas: Tarefa[] = this.listarTodos();
+    //interação
+    tarefas.forEach((obj, index, objs) => {
+      //se achar um objeto com o msm id
+      if(obj.id === id) {
+        //inverte o status
+        objs[index].concluida = !obj.concluida;
+      }
+    });
+    //atualiza o localStorage
+    localStorage['tarefa'] = JSON.stringify(tarefas);
+  }
 }
