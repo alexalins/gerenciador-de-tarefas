@@ -8,7 +8,7 @@ export class TarefaConcluidaDirective implements OnInit{
   //tem q ser o msm nome da variavel para pegar
   @Input() tarefaConcluida: boolean;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnInit() {
     if(this.tarefaConcluida) {
