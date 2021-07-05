@@ -24,7 +24,7 @@ export class ListarTarefasComponent implements OnInit {
     //tirando a atualizacao ao clicar
     $event.preventDefault();
     //alert
-    if(confirm('Deseja remover a tarefa "'+ tarefa.nome + '" ?')) {
+    if(confirm('Deseja remover a tarefa "'+ tarefa.nome + '"?')) {
       //removendo
       this.tarefaService.remover(tarefa.id);
       //atualizando lista de tarefas
@@ -32,4 +32,13 @@ export class ListarTarefasComponent implements OnInit {
     }
   }
 
+  alterarStatus(tarefa:Tarefa): void {
+    //alerta
+    if(confirm('Deseja alterar o status da tarefa "' + tarefa.nome +'"?')) {
+      //muda status
+      this.tarefaService.alterarStatus(tarefa.id);
+      //atualizando lista de tarefas
+      this.tarefas = this.listarTodos();
+    }
+  }
 }
